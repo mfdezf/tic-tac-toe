@@ -22,10 +22,15 @@ def print_keyboard(keyboard):
         if (r != 2):
             print('-----------\n')
 
+
+def gather_plyr_pos():
+    pos = input('Please enter position: ')
+    return int(pos)
+
 #controler
 
 print_keyboard(keyboard)
-
+gather_plyr_pos()
 
 
 
