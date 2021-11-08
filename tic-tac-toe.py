@@ -29,6 +29,7 @@ def gather_plyr_pos():
     pos = input('Please enter position: ')
     return int(pos)
 
+
 #controler
 
 def pos_validator(pos):
@@ -38,12 +39,19 @@ def pos_validator(pos):
         return True
 
     else:
+        input('Incorrect position, the value entered must in the range (0 - 9), press any key to continue')
         return False
 
-print_keyboard(keyboard)
+while True:     #To make sure I'm gathering correct data
 
-pos_validator()
+    print_keyboard(keyboard)
 
+    ply_pos = gather_plyr_pos()
+
+    if pos_validator(ply_pos):
+        break
+
+    
 
 
 
