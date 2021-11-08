@@ -31,8 +31,20 @@ def gather_plyr_pos():
 
 #controler
 
+def pos_validator(pos):
+    '''To validate if user's input is in range 1 - 9'''
+
+    if pos > 0 and pos < 10:
+        return True
+
+    else:
+        return False
+
 print_keyboard(keyboard)
-gather_plyr_pos()
+
+pos_validator()
+
+
 
 
 
