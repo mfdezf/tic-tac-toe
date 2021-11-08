@@ -24,6 +24,8 @@ def print_keyboard(keyboard):
 
 
 def gather_plyr_pos():
+    '''To gather the player's position'''
+
     pos = input('Please enter position: ')
     return int(pos)
 
