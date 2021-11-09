@@ -9,7 +9,7 @@ keyboard = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
 def print_keyboard(keyboard):
     '''To print Tic Tac Toe keyboard'''
-    os.system('cls')
+    os.system('clear')
 
     print('Tic Tac Toe game\n')
     
@@ -42,14 +42,29 @@ def pos_validator(pos):
         input('Incorrect position, the value entered must in the range (0 - 9), press any key to continue')
         return False
 
-while True:     #To make sure I'm gathering correct data
+cont = 0        # Counter used to switch from X to O
+while True:     # To make sure the user is entering valid values
+      
+    player = '' # To designate the player X or 0
 
     print_keyboard(keyboard)
 
+    cont = cont + 1   # To switch from O to X
+
+    if cont % 2 == 0:
+        player = 'X'
+
+    else:
+        player = 'O'
+
+    print(f'Player {player} turn')          # Print the name and gather the position
     ply_pos = gather_plyr_pos()
 
-    if pos_validator(ply_pos):
-        break
+    if pos_validator(ply_pos):  
+        continue
+    
+    else:
+        cont = cont - 1                     # To keep current user if an invalid position was entered
 
     
 
