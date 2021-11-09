@@ -4,6 +4,35 @@ import os
 
 keyboard = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 
+def insert_mark(ply_pos, player):
+    '''To insert a mark in the keyboard'''
+    
+    if ply_pos == 7:
+        keyboard[0][0] = player
+    
+    elif ply_pos == 8:
+        keyboard[0][1] = player
+
+    elif ply_pos == 9:
+        keyboard[0][2] = player
+    
+    elif ply_pos == 4:
+        keyboard[1][0] = player
+    
+    elif ply_pos == 5:
+        keyboard[1][1] = player
+
+    elif ply_pos == 6:
+        keyboard[1][2] = player
+    
+    elif ply_pos == 1:
+        keyboard[2][0] = player
+    
+    elif ply_pos == 2:
+        keyboard[2][1] = player
+
+    elif ply_pos == 3:
+        keyboard[2][2] = player
 
 #view
 
@@ -61,7 +90,8 @@ while True:     # To make sure the user is entering valid values
     ply_pos = gather_plyr_pos()
 
     if pos_validator(ply_pos):  
-        continue
+        insert_mark(ply_pos, player)
+        print_keyboard(keyboard)
     
     else:
         cont = cont - 1                     # To keep current user if an invalid position was entered
