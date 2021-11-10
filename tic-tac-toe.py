@@ -71,23 +71,42 @@ def mark_insertion_checker(ply_pos):
 def winner_tie_validator():
     '''To determine if there is a winner or a tie'''
     
-    valindation_mark = None         #To compare for the number of ocurrences of a mark to determine a winner
-    mark_counter_row = 0            #To count the times that a mark repeats in a row
+    valindation_mark_row = None         #To compare for the number of ocurrences of a mark to determine a winner
+    mark_counter_row = 0                #To count the times that a mark repeats
 
+    # To check winners by row
 
     for r in range(0,3):
         for c in range(0,3):
             if c == 0 and keyboard[r][c] !=' ':
-                valindation_mark = keyboard[r][c]
+                valindation_mark_row = keyboard[r][c]
             
-            if valindation_mark != None and valindation_mark == keyboard[r][c]:
+            if valindation_mark_row != None and valindation_mark_row == keyboard[r][c]:
                 mark_counter_row += 1
                 if mark_counter_row == 3:
                     return True
         
-        valindation_mark = None
-        mark_counter_row = 0   # reset counter to check a new row
+        valindation_mark_row = None
+        mark_counter_row  = 0   # reset counter to check a new row
 
+    
+    # To check winners by column
+
+    valindation_mark_column = None                # To compare for the number of ocurrences of a mark to determine a winner
+    mark_counter_column = 0                       # To count the times that a mark repeats
+
+    for r in range(0,3):
+        for c in range(0,3):
+            if c == 0 and keyboard[c][r] !=' ':
+                valindation_mark_column = keyboard[c][r]
+            
+            if valindation_mark_column != None and valindation_mark_column == keyboard[c][r]:
+                mark_counter_column += 1
+                if mark_counter_column == 3:
+                    return True
+        
+        valindation_mark_column = None
+        mark_counter_column = 0   # reset counter to check a new column
 
 
 #view
