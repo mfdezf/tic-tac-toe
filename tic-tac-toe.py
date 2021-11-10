@@ -67,6 +67,29 @@ def mark_insertion_checker(ply_pos):
     else: 
         input('The position is not empty, press any key to retry')
         return False
+
+def winner_tie_validator():
+    '''To determine if there is a winner or a tie'''
+    
+    valindation_mark = None         #To compare for the number of ocurrences of a mark to determine a winner
+    mark_counter_row = 0            #To count the times that a mark repeats in a row
+
+
+    for r in range(0,3):
+        for c in range(0,3):
+            if c == 0 and keyboard[r][c] !=' ':
+                valindation_mark = keyboard[r][c]
+            
+            if valindation_mark != None and valindation_mark == keyboard[r][c]:
+                mark_counter_row += 1
+                if mark_counter_row == 3:
+                    return True
+        
+        valindation_mark = None
+        mark_counter_row = 0   # reset counter to check a new row
+
+
+
 #view
 
 def print_keyboard(keyboard):
@@ -125,6 +148,11 @@ while True:     # To make sure the user is entering valid values
     if pos_validator(ply_pos) and mark_insertion_checker(ply_pos):  
         insert_mark(ply_pos, player)
         print_keyboard(keyboard)
+        
+        if winner_tie_validator():
+            print('We have a winner!!')
+            break
+        
     
     else:
         cont = cont - 1                     # To keep current user if an invalid position was entered
