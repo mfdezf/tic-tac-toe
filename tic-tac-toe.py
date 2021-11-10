@@ -34,7 +34,7 @@ def insert_mark(ply_pos, player):
     elif ply_pos == 3:
         keyboard[2][2] = player
 
-def mark_insertion_possible(ply_pos):
+def mark_insertion_checker(ply_pos):
     '''To determine if the position in the keyboard is empty so can be marked'''
     
     if ply_pos == 7 and keyboard[0][0] == ' ':
@@ -122,7 +122,7 @@ while True:     # To make sure the user is entering valid values
     print(f'Player {player} turn')          # Print the name and gather the position
     ply_pos = gather_plyr_pos()
 
-    if pos_validator(ply_pos) and mark_insertion_possible(ply_pos):  
+    if pos_validator(ply_pos) and mark_insertion_checker(ply_pos):  
         insert_mark(ply_pos, player)
         print_keyboard(keyboard)
     
