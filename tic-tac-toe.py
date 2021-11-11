@@ -74,7 +74,7 @@ def winner_tie_validator():
     valindation_mark_row = None         #To compare for the number of ocurrences of a mark to determine a winner
     mark_counter_row = 0                #To count the times that a mark repeats
 
-    # To check winners by row
+    # To check winner by row
 
     for r in range(0,3):
         for c in range(0,3):
@@ -90,7 +90,7 @@ def winner_tie_validator():
         mark_counter_row  = 0   # reset counter to check a new row
 
     
-    # To check winners by column
+    # To check winner by column
 
     valindation_mark_column = None                # To compare for the number of ocurrences of a mark to determine a winner
     mark_counter_column = 0                       # To count the times that a mark repeats
@@ -107,6 +107,23 @@ def winner_tie_validator():
         
         valindation_mark_column = None
         mark_counter_column = 0   # reset counter to check a new column
+
+    # To check winner by diagonal
+
+    # Left to right diagonal
+    if keyboard[0][0] != ' ':
+        diagonal_mark = keyboard[0][0]
+
+        if keyboard[1][1] ==  diagonal_mark and keyboard[2][2] == diagonal_mark:
+            return True
+
+    # Right to left diagonal
+    if keyboard[0][2] != ' ':
+        diagonal_mark = keyboard[0][2]
+
+        if keyboard[1][1] ==  diagonal_mark and keyboard[2][0] == diagonal_mark:
+            return True
+
 
 
 #view
