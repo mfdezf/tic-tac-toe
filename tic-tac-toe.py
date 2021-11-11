@@ -108,6 +108,23 @@ def winner_tie_validator():
         valindation_mark_column = None
         mark_counter_column = 0   # reset counter to check a new column
 
+    # To check winner by diagonal
+
+    # Left to right diagonal
+    if keyboard[0][0] != ' ':
+        diagonal_mark = keyboard[0][0]
+
+        if keyboard[1][1] ==  diagonal_mark and keyboard[2][2] == diagonal_mark:
+            return True
+
+    # Right to left diagonal
+    if keyboard[0][2] != ' ':
+        diagonal_mark = keyboard[0][2]
+
+        if keyboard[1][1] ==  diagonal_mark and keyboard[2][0] == diagonal_mark:
+            return True
+
+
 
 #view
 
